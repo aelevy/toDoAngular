@@ -1,5 +1,5 @@
 function MainController($scope){
-
+ $scope.completed = false;
  $scope.toDoList = [];
 
  $scope.addToDo = function(toDo){

@@ -30,9 +30,14 @@
           <button ng-click="addToDo(newToDo)">Add</button>
           <input type="text" class="taskEnter" name="taskEnter" placeholder="What needs to be done?" ng-model="newToDo">
         </form>
-        <section ng-repeat="toDo in toDoList">
-            <div><input type="checkbox" ng-model="deleted">
-            <p ng-dblclick="editedToDo(toDo)"                   ng-class="{strike:deleted}">{{toDo}}</p>
+        <section ng-repeat="toDo in toDoList track by $index">
+            <div>
+             <a href=""ng-model="completed">
+              <img src="images/greencheck.png" alt="">
+              </a>
+            <p ng-dblclick="editedToDo(toDo)"               ng-class="{strike:completed}">
+             {{toDo}}
+             </p>
             <a href="" ng-click="toDoList.splice($index,1)"><img src="images/SmallRedX.png" alt=""></a>
             </div>
 
@@ -46,13 +51,13 @@
 
         <ul class="taskStatus">
 
-          <li class="itemsLeft">item(s) left</li>
+          <li class="itemsLeft">{{toDoList.length}} item(s) left</li>
 
           <li>
             <ul class="taskNav">
-              <li><a href="">All</a></li>
-              <li><a href="">Active</a></li>
-              <li><a href="">Completed</a></li>
+              <li><a href="" >All</a></li>
+              <li><a href="" >Active</a></li>
+              <li><a href="" >Completed</a></li>
             </ul>
           </li>
 
