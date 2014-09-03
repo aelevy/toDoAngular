@@ -1,0 +1,78 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>toDo</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+
+  </head>
+  <body ng-app>
+
+    <h1>todos</h1>
+
+    <div class="container" ng-controller="MainController">
+
+      <div class="taskPrompt">
+        <form name="taskPrompt">
+          <button ng-click="addToDo(newToDo)">Add</button>
+          <input type="text" class="taskEnter" name="taskEnter" placeholder="What needs to be done?" ng-model="newToDo">
+        </form>
+        <section ng-repeat="toDo in toDoList">
+            <div><input type="checkbox" ng-model="deleted">
+            <p ng-dblclick="editedToDo(toDo)"                   ng-class="{strike:deleted}">{{toDo}}</p>
+            <a href="" ng-click="toDoList.splice($index,1)"><img src="images/SmallRedX.png" alt=""></a>
+            </div>
+
+        </section>
+      </div>
+
+
+
+
+
+
+        <ul class="taskStatus">
+
+          <li class="itemsLeft">item(s) left</li>
+
+          <li>
+            <ul class="taskNav">
+              <li><a href="">All</a></li>
+              <li><a href="">Active</a></li>
+              <li><a href="">Completed</a></li>
+            </ul>
+          </li>
+
+          <li class="clearCompleted">Clear completed</li>
+
+        </ul>
+
+      </div>
+
+      <footer>Double-click to edit a todo</footer>
+
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
